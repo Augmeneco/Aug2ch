@@ -21,13 +21,15 @@ class ThreadPost : public QWidget
 {
     Q_OBJECT
 
+public slots:
+    void resized();
+
 public:
     explicit ThreadPost(QWidget *parent = nullptr, ThreadInfo *threadInfo = nullptr);
     ~ThreadPost();
 
 private:
     Ui::ThreadPost *ui;
-    void resizeEvent(QResizeEvent *event);
 };
 
 #endif // THREADPOST_H

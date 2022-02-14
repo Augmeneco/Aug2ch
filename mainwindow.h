@@ -16,6 +16,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+signals:
+    void resizeWindow();
+
 private:
     Ui::MainWindow *ui;
     Requests requests;

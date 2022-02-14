@@ -31,8 +31,7 @@ ThreadPost::ThreadPost(QWidget *parent, ThreadInfo *threadInfo) :
     }
 }
 
-void ThreadPost::resizeEvent(QResizeEvent *event)
-{
+void ThreadPost::resized(){
     qDebug() << width();
     if (height() < width()){
         ui->threadImages->setDirection(ui->threadImages->LeftToRight);
@@ -40,6 +39,16 @@ void ThreadPost::resizeEvent(QResizeEvent *event)
         ui->threadImages->setDirection(ui->threadImages->TopToBottom);
     }
 }
+
+/*void ThreadPost::resizeEvent(QResizeEvent *event)
+{
+    qDebug() << width();
+    if (height() < width()){
+        ui->threadImages->setDirection(ui->threadImages->LeftToRight);
+    }else{
+        ui->threadImages->setDirection(ui->threadImages->TopToBottom);
+    }
+}*/
 
 ThreadPost::~ThreadPost()
 {

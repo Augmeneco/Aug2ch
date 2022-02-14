@@ -42,12 +42,14 @@ MainWindow::MainWindow(QWidget *parent)
 
         ThreadPost *thread = new ThreadPost(this, &threadInfo);
         ui->threadsList->addWidget(thread);
+        connect(this, &MainWindow::resizeWindow,
+                thread, &ThreadPost::resized);
     }
 
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event){
-
+    emit resizeWindow();
 }
 
 MainWindow::~MainWindow()
