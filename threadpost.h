@@ -22,7 +22,7 @@ class ThreadPost : public QWidget
     Q_OBJECT
 
 public slots:
-    void resized();
+    void resized(int w, int h);
 
 public:
     explicit ThreadPost(QWidget *parent = nullptr, ThreadInfo *threadInfo = nullptr);

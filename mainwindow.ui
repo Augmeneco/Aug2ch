@@ -21,7 +21,11 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLineEdit" name="lineEdit"/>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="text">
+         <string>vg</string>
+        </property>
+       </widget>
       </item>
       <item>
        <spacer name="horizontalSpacer">
@@ -71,7 +75,7 @@
          <x>0</x>
          <y>0</y>
          <width>667</width>
-         <height>307</height>
+         <height>302</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -91,7 +95,7 @@
          <number>0</number>
         </property>
         <item>
-         <layout class="QVBoxLayout" name="threadsList"/>
+         <widget class="QStackedWidget" name="stackedWidget"/>
         </item>
        </layout>
       </widget>
@@ -105,7 +109,7 @@
      <x>0</x>
      <y>0</y>
      <width>685</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

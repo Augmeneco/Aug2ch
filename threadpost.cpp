@@ -31,9 +31,8 @@ ThreadPost::ThreadPost(QWidget *parent, ThreadInfo *threadInfo) :
     }
 }
 
-void ThreadPost::resized(){
-    qDebug() << width();
-    if (height() < width()){
+void ThreadPost::resized(int w, int h){
+    if (h < w){
         ui->threadImages->setDirection(ui->threadImages->LeftToRight);
     }else{
         ui->threadImages->setDirection(ui->threadImages->TopToBottom);
