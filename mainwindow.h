@@ -14,12 +14,14 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    void drawIndex(int page=1);
 
     ~MainWindow();
 
 signals:
     void resizeWindow(int w, int h);
+
+public slots:
+    void openThread(int threadNum, QString board);
 
 private slots:
     void on_pushButton_clicked();

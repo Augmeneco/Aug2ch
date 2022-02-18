@@ -9,21 +9,27 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    answerslist.cpp \
     main.cpp \
     mainwindow.cpp \
     requests.cpp \
+    threadslist.cpp \
     utils.cpp \
     threadpost.cpp
 
 HEADERS += \
+    answerslist.h \
     mainwindow.h \
     requests.h \
+    threadslist.h \
     utils.h \
     threadpost.h
 
 FORMS += \
+    answerslist.ui \
     mainwindow.ui \
-    threadpost.ui
+    threadpost.ui \
+    threadslist.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

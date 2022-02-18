@@ -61,7 +61,7 @@
        <number>1</number>
       </property>
       <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAsNeeded</enum>
+       <enum>Qt::ScrollBarAlwaysOff</enum>
       </property>
       <property name="widgetResizable">
        <bool>true</bool>
@@ -75,7 +75,7 @@
          <x>0</x>
          <y>0</y>
          <width>667</width>
-         <height>302</height>
+         <height>307</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -95,7 +95,14 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QStackedWidget" name="stackedWidget"/>
+         <widget class="QStackedWidget" name="stackedWidget">
+          <widget class="QWidget" name="page">
+           <layout class="QVBoxLayout" name="verticalLayout"/>
+          </widget>
+          <widget class="QWidget" name="page_2">
+           <layout class="QVBoxLayout" name="verticalLayout_4"/>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -109,7 +116,7 @@
      <x>0</x>
      <y>0</y>
      <width>685</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

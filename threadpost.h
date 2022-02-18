@@ -6,10 +6,13 @@
 
 class ThreadInfo{
 public:
+    ThreadInfo clone();
+
     QString text;
     QString title;
+    QString board;
     QList<QImage> images;
-    int id;
+    int threadNum;
     QList<QString> imageUrls;
 };
 
@@ -23,9 +26,14 @@ class ThreadPost : public QWidget
 
 public slots:
     void resized(int w, int h);
+    void on_threadOpen_clicked();
+
+signals:
+    void openThread(int threadNum, QString board);
 
 public:
     explicit ThreadPost(QWidget *parent = nullptr, ThreadInfo *threadInfo = nullptr);
+    ThreadInfo threadInfo_;
     ~ThreadPost();
 
 private:

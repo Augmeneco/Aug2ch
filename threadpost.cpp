@@ -6,6 +6,7 @@
 #include <QDebug>
 #include "requests.h"
 #include "utils.h"
+#include "mainwindow.h"
 
 ThreadPost::ThreadPost(QWidget *parent, ThreadInfo *threadInfo) :
     QWidget(parent),
@@ -15,6 +16,7 @@ ThreadPost::ThreadPost(QWidget *parent, ThreadInfo *threadInfo) :
 
     ui->threadName->setText(threadInfo->title);
     ui->threadText->setText(threadInfo->text);
+    this->threadInfo_ = threadInfo->clone();
 
     for(QString imageUrl : threadInfo->imageUrls){
         QPixmap pm;
@@ -29,9 +31,13 @@ ThreadPost::ThreadPost(QWidget *parent, ThreadInfo *threadInfo) :
 
         ui->threadImages->addWidget(imageObject);
     }
+
+    connect(this, &ThreadPost::openThread,
+            ((MainWindow*)parent), &MainWindow::openThread);
 }
 
 void ThreadPost::resized(int w, int h){
+    qDebug() << w;
     if (h < w){
         ui->threadImages->setDirection(ui->threadImages->LeftToRight);
     }else{
@@ -53,3 +59,22 @@ ThreadPost::~ThreadPost()
 {
     delete ui;
 }
+
+void ThreadPost::on_threadOpen_clicked()
+{
+    qDebug() << threadInfo_.threadNum << threadInfo_.board;
+    emit openThread(threadInfo_.threadNum, threadInfo_.board);
+}
+
+ThreadInfo ThreadInfo::clone(){
+    ThreadInfo threadInfo;
+    threadInfo.board = this->board;
+    threadInfo.imageUrls = this->imageUrls;
+    threadInfo.images = this->images;
+    threadInfo.text = this->text;
+    threadInfo.threadNum = this->threadNum;
+    threadInfo.title = this->title;
+
+    return threadInfo;
+}
+
